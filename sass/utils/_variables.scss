@@ -1,0 +1,32 @@
+$colors: (
+  /* Basic text style*/ 'pr-color': #212121,
+  /* Secondary text style */ 'sec-color': #757575,
+  /* Inverse text style*/ 'inv-color': #ffffff,
+  /* Accent color*/ 'accent-color': #2196f3,
+  /* Basic background color */ 'pr-bg-color': #ffffff,
+  /* Secondary background color */ 'sec-bg-color': #2f303a,
+  /* Basic button background color */ 'btn-bg-color': #f5f4fa,
+  /* Basic icon fill */ 'pr-icon-fill': #afb1b8
+);
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}
+
+// Project Fonts
+$pr-font: 'Roboto', sans-serif;
+$sec-font: 'Raleway', sans-serif;
+
+
+
+/* Timing function */
+$bezier-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+// CardSet Styles
+$gap-cardSet: 30px;
+
+$cardSet-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0px 1px 1px rgba(0, 0, 0, 0.14),
+   0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  $projectSet-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);

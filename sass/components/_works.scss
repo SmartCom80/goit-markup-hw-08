@@ -1,0 +1,32 @@
+/* Section Our Works */
+
+ .works {
+  padding-top: 0;
+}
+
+.works__card {
+  position: relative;
+
+  &:not(:first-child) {
+    margin-left: $gap-cardSet;
+  }  
+}
+
+.works__subtitle {
+  @include centering_content ();
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  
+  width: 100%;
+  height: 70px;
+  
+  @include font(700, 14px, 1.14, 0.03em, uppercase);
+  // font-weight: 700;
+  // line-height: 1.14;
+  // letter-spacing: 0.03em;
+  // text-transform: uppercase;
+
+  color: getColor('inv-color');
+  background: rgba(47, 48, 58, 0.8);
+}

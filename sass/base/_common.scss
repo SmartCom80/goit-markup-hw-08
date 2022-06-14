@@ -1,0 +1,32 @@
+body {
+  font-family: $pr-font;
+  color: getColor('pr-color');
+}
+
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 50px;
+  text-align: center;
+  justify-content: center;
+  font-family: inherit;
+  @include font(700, 36px, 1.17, 0.03em);
+}
+
+.social__link {
+  @include centering_content();
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+

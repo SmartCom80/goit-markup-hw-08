@@ -1,0 +1,20 @@
+// Function Transition
+// @mixin transitionable($property) {
+//   transition: $property 250ms $bezier-timing;
+// }
+
+// Mixin FontValue
+@mixin font($fw, $fs, $lh, $ls, $tt: false) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+  text-transform: $tt;
+}
+
+// Mixin Centering Content
+@mixin centering_content($mode: flex) {
+  display: $mode;
+  align-items: center;
+  justify-content: center;
+}

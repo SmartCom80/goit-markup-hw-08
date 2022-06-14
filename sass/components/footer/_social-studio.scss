@@ -1,0 +1,40 @@
+/* Footer social link */
+
+.studio {
+   margin-left: 70px;
+}
+
+.studio__title {
+   margin-bottom: 20px;
+
+   @include font(700, 14px, 1.14, 0.03em, uppercase);
+//    font-weight: 700;
+//    line-height: 1.14;
+//    letter-spacing: 0.03em;
+//    text-transform: uppercase;
+
+   color: getColor('inv-color');
+}
+
+.social__card {
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+}
+    
+.studio__socialLink {
+    @extend .social__link;
+
+   background-color: rgba(255, 255, 255, 0.1);
+   //@include transitionable(background-color);
+   transition: background-color 250ms $bezier-timing;
+
+  &:hover,
+  &:focus {
+   background-color: getColor('accent-color');
+  }
+}
+
+.studio__socialIcon {
+   fill: getColor('inv-color');
+}

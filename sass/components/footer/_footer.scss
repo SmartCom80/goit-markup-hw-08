@@ -1,0 +1,32 @@
+/* Footer */
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  background-color: getColor('sec-bg-color');
+}
+
+.footer__container {
+  display: flex;
+  align-items: baseline;
+}
+
+.footer__link {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.footer__link,
+.address__link {
+  text-decoration-line: none;
+}
+
+.footer__logo{
+  @extend .logo;
+
+  color: getColor('inv-color');
+}
+
+.footer__logo--accent {
+  color: getColor('accent-color');
+}

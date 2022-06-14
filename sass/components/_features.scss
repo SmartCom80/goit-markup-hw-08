@@ -1,0 +1,46 @@
+/* Section Features */
+.feature {
+  padding-top: 94px;
+}
+
+.feature__title {
+  @extend %hidden;
+}
+
+.feature__card {
+  @include centering_content(block);
+
+  &:not(:first-child) {
+    margin-left: $gap-cardSet;
+  }
+}
+
+// .features__card:not(:first-child) {
+//   margin-left: $gap-cardSet;
+// }
+
+.feature__iconThumb {
+  padding: 25px 100px;
+  margin-bottom: $gap-cardSet;
+
+  background-color: getColor('btn-bg-color');
+  border-radius: 4px;
+}
+
+.feature__subtitle {
+  margin-bottom: 10px;
+
+  @include font(700, 14px, 1.14, 0.03em, uppercase);
+  // font-weight: 700;
+  // line-height: 1.14;
+  // text-transform: uppercase;
+  // letter-spacing: 0.03em;
+}
+
+.feature__content {
+  @include font(400, 14px, 1.71, 0.03em);
+  // line-height: 1.71;
+  // letter-spacing: 0.03em;
+
+  color: getColor('sec-color');
+}

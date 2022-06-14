@@ -1,0 +1,60 @@
+/* Section Our Clients */
+
+// .section.clients {
+//   //   display: flex;
+//   //   padding-top: 94px;
+//   //   padding-bottom: 94px;
+// }
+
+.clients__title {
+  @include font(700, 36px, 1.17, 0.03em);
+  //margin-bottom: 50px;
+  // text-align: center;
+
+  // font-weight: 700;
+  // font-size: 36px;
+  // line-height: 1.16;
+
+  // letter-spacing: 0.03em;
+}
+
+// .clients__list {
+//   /* display: flex; */
+//   // justify-content: center;
+// }
+
+.clients__item:not(:first-child) {
+  margin-left: $gap-cardSet;
+}
+
+.clients__link {
+  @include centering_content();
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  width: 170px;
+  height: 92px;
+
+  border: 1px solid getColor('pr-icon-fill');
+  border-radius: 4px;
+
+  //@include transitionable(border);
+  transition: border 250ms $bezier-timing;
+
+  &:hover,
+  &:focus {
+    border: 1px solid getColor('accent-color');
+  }
+}
+
+.clients__icon {
+  fill: getColor('pr-icon-fill');
+  //@include transitionable(fill);
+  transition: fill 250ms $bezier-timing;
+
+  .clients__link:hover &,
+  .clients__link:focus & {
+    fill: getColor('accent-color');
+  }
+}

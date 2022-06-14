@@ -1,0 +1,39 @@
+/*Header Contacts */
+.contact__list {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.contact__item + .contact__item {
+  margin-left: $gap-cardSet;
+}
+
+.contact__link {
+  display: flex;
+  align-items: center;
+  padding: 15px 0px;
+
+  color: getColor('sec-color');
+  @include font(500, 14px, 1.14, 0.02em);
+  // font-weight: 500;
+  // line-height: 1.14;
+  // letter-spacing: 0.02em;
+  
+  //@include transitionable(color);
+  transition: color 250ms $bezier-timing;
+
+  &:hover,
+  &:focus {
+  color: getColor('accent-color');
+  }
+}
+
+.contact__icon {
+  margin-right: 10px;
+
+  fill: currentColor;
+
+  //@include transitionable(fill);
+  transition: fill 250ms $bezier-timing;
+}

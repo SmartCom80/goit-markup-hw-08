@@ -1,0 +1,49 @@
+/* Address */
+.address {
+  font-style: normal;
+}
+
+.address__post {
+  display: inline-block;
+  margin-bottom: 9px;
+
+  color: getColor('inv-color');
+  
+  @include font(400, 14px, 1.71, 0.03em);
+  // line-height: 1.71;
+  // letter-spacing: 0.03em;
+
+  //@include transitionable(color);
+  transition: opacity 250ms $bezier-timing;
+
+  &:hover,
+  &:focus {
+   color: getColor('accent-color');
+  }
+}
+
+.address__list {
+  display: block;
+}
+
+.address__item:not(:last-child) {
+  margin-bottom: 9px;
+}
+
+.address__link {
+  color: rgba(255, 255, 255, 0.6);
+
+  @include font(400, 14px, 1.71, 0.03em);
+  // line-height: 1.71;
+  // letter-spacing: 0.03em;
+
+  //@include transitionable(color);
+  transition: color 250ms $bezier-timing;
+
+  &:hover,
+  &:focus {
+    color: getColor('accent-color');
+  }
+}
+
+
