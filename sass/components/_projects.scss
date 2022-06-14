@@ -4,7 +4,7 @@
 }
 
 .filter__list {
-  @include centering_content();
+  //@include centering_content();
   
   // /* display: flex; */
   // justify-content: center;
@@ -119,7 +119,9 @@
   // @include transitionable(background-color);
   // @include transitionable(transform);
 
-  transition: transform 250ms $bezier-timing, opacity 250ms $bezier-timing, background-color 250ms $bezier-timing;
+  transition: transform 250ms $bezier-timing, 
+  opacity 250ms $bezier-timing, 
+  sbackground-color 250ms $bezier-timing;
 
   .project__link:hover &,
   .project__link:focus & {

@@ -1,11 +1,5 @@
 /* Section Our Clients */
 
-// .section.clients {
-//   //   display: flex;
-//   //   padding-top: 94px;
-//   //   padding-bottom: 94px;
-// }
-
 .clients__title {
   @include font(700, 36px, 1.17, 0.03em);
   //margin-bottom: 50px;
@@ -18,17 +12,12 @@
   // letter-spacing: 0.03em;
 }
 
-// .clients__list {
-//   /* display: flex; */
-//   // justify-content: center;
-// }
-
 .clients__item:not(:first-child) {
   margin-left: $gap-cardSet;
 }
 
 .clients__link {
-  @include centering_content();
+  //@include centering_content();
   // display: flex;
   // justify-content: center;
   // align-items: center;

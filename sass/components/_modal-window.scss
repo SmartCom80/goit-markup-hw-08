@@ -40,7 +40,9 @@
   background-color: getColor("pr-bg-color");
 
   //@include transitionable(box-shadow);
-  transition: box-shadow 250ms $bezier-timing, visibility 250ms $bezier-timing, opacity 250ms $bezier-timing;
+  transition: box-shadow 250ms $bezier-timing, 
+  visibility 250ms $bezier-timing, 
+  opacity 250ms $bezier-timing;
 
   border-radius: 4px;
 
@@ -97,9 +99,9 @@
 }
 
 .form__field {
-  display: flex;
+  //display: flex;
   position: relative;
-  flex-direction: column;
+  //flex-direction: column;
   margin-bottom: 10px;
 }
 
@@ -152,8 +154,8 @@
 }
 
 .comment__field {
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   margin-bottom: 20px;
 }
 
