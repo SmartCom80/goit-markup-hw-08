@@ -1,6 +1,6 @@
 /* Section Our Clients */
 
-.clients__title {
+.client__title {
   @include font(700, 36px, 1.17, 0.03em);
   //margin-bottom: 50px;
   // text-align: center;
@@ -12,11 +12,11 @@
   // letter-spacing: 0.03em;
 }
 
-.clients__item:not(:first-child) {
+.client__item:not(:first-child) {
   margin-left: $gap-cardSet;
 }
 
-.clients__link {
+.client__link {
   //@include centering_content();
   // display: flex;
   // justify-content: center;
@@ -37,13 +37,13 @@
   }
 }
 
-.clients__icon {
+.client__icon {
   fill: getColor('pr-icon-fill');
   //@include transitionable(fill);
   transition: fill 250ms $bezier-timing;
 
-  .clients__link:hover &,
-  .clients__link:focus & {
+  .client__link:hover &,
+  .client__link:focus & {
     fill: getColor('accent-color');
   }
 }

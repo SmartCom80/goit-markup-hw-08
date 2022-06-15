@@ -1,10 +1,10 @@
 /* Section Our Works */
 
- .works {
+ .work {
   padding-top: 0;
 }
 
-.works__card {
+.work__card {
   position: relative;
 
   &:not(:first-child) {
@@ -12,7 +12,7 @@
   }  
 }
 
-.works__subtitle {
+.work__subtitle {
   //@include centering_content ();
   position: absolute;
   left: 0;

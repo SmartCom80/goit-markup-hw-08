@@ -18,8 +18,9 @@
 
 .header__logo {
   @extend .logo;
+
+  &--accent {
+    color: getColor('accent-color');
+  }
 }
 
-.header__logo--accent {
-  color: getColor('accent-color');
-}

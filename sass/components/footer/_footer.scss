@@ -16,17 +16,19 @@
   margin-bottom: 20px;
 }
 
-.footer__link,
-.address__link {
-  text-decoration-line: none;
-}
+// .footer__link,
+// .address__link {
+//   text-decoration-line: none;
+// }
 
 .footer__logo{
   @extend .logo;
 
   color: getColor('inv-color');
+  
+  &--accent {
+    color: getColor('accent-color');
+  }
 }
 
-.footer__logo--accent {
-  color: getColor('accent-color');
-}
+
