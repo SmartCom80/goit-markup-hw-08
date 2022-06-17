@@ -2,6 +2,7 @@
 @import './utils/placeholder';
 @import './utils/mixin';
 @import './utils/vis-hidden';
+@import './utils/breakpoints';
 
 
 @import './base/normalize';
@@ -24,8 +25,7 @@
 @import './components/work';
 @import './components/team';
 @import './components/client';
-@import './components/project
-';
+@import './components/project';
 
 
 @import './components/footer/footer';

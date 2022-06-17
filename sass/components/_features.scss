@@ -1,23 +1,46 @@
 /* Section Features */
-.feature {
-  padding-top: 94px;
-}
-
 .feature__title {
   @extend %hidden;
 }
 
-.feature__card {
-  @include centering_content(block);
+.feature__list {
+  @include betweenBreak (tab, desk) {
+   @include centering_content();
+   flex-wrap: wrap;
 
-  &:not(:first-child) {
-    margin-left: $gap-cardSet;
+   margin-left: calc(#{$gap-cardSet} * (-1));
+   margin-top: calc(#{$gap-cardSet} * (-1));
+   align-items:stretch;
+  }
+
+  @include afterBreak (desk) {
+    @include centering_content();
+
   }
 }
 
-// .features__card:not(:first-child) {
-//   margin-left: $gap-cardSet;
-// }
+.feature__card {
+  @include beforeBreak (tab){
+  @include centering_content('block');
+
+  &:not(:first-child) {
+    margin-bottom: $gap-cardSet;
+  }
+}
+
+  @include betweenBreak (tab, desk) {
+    
+    @include flexBasis (2);
+  }
+
+  @include afterBreak (desk) {
+    @include centering_content(block);
+
+    &:not(:first-child) {
+    margin-left: $gap-cardSet;
+    }
+  }
+}
 
 .feature__iconThumb {
   padding: 25px 100px;
@@ -35,6 +58,14 @@
   // line-height: 1.14;
   // text-transform: uppercase;
   // letter-spacing: 0.03em;
+
+  @include afterBreak (mob) {
+    text-align: center;
+  }
+
+  @include afterBreak (tab) {
+    text-align: left;
+  }
 }
 
 .feature__content {

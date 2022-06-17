@@ -1,7 +1,13 @@
-// Function Transition
-// @mixin transitionable($property) {
-//   transition: $property 250ms $bezier-timing;
-// }
+ //Function Transition
+ @mixin transitionable($property...) {
+    @for $i from 0 to length($property) {
+        #{nth($property, $i + 1)}{
+           transition: $property 250ms $bezier-timing;}
+  }
+}
+
+
+
 
 // Mixin FontValue
 @mixin font($fw, $fs, $lh, $ls, $tt: false) {
@@ -18,3 +24,12 @@
   align-items: center;
   justify-content: center;
 }
+
+// Mixin Сalculating container width for flex item 
+// $gap-cardSet - standard clearance between template elements
+@mixin flexBasis ($amount_flexs) {
+  flex-basis: calc((100% - (#{$gap-cardSet} * #{$amount_flexs})) / #{$amount_flexs});
+  margin-left: $gap-cardSet;
+  margin-top: $gap-cardSet;
+}
+

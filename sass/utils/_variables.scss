@@ -9,6 +9,12 @@ $colors: (
   /* Basic icon fill */ 'pr-icon-fill': #afb1b8
 );
 
+$breakpoints: (
+   'mob': 480px,
+   'tab': 768px,
+  'desk': 1200px
+ ) !default;
+
 @function getColor($key) {
   @return map-get($colors, $key);
 }
@@ -16,7 +22,6 @@ $colors: (
 // Project Fonts
 $pr-font: 'Roboto', sans-serif;
 $sec-font: 'Raleway', sans-serif;
-
 
 
 /* Timing function */

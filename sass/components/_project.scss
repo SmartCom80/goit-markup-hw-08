@@ -28,12 +28,12 @@
   @include font(500, 16px, 1.62, 0.03em);
   text-align: center;
 
-  // @include transitionable(color); 
+  @include transitionable(color, background-color, box-shadow); 
   // @include transitionable(background-color);
   // @include transitionable(box-shadow);
-  transition: color 250ms $bezier-timing,
-    background-color 250ms $bezier-timing,
-    box-shadow 250ms $bezier-timing;
+  // transition: color 250ms $bezier-timing,
+  //   background-color 250ms $bezier-timing,
+  //   box-shadow 250ms $bezier-timing;
 
   &:hover,
   &:focus {

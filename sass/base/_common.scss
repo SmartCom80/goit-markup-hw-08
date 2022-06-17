@@ -4,14 +4,33 @@ body {
 }
 
 .section {
-  padding-top: 94px;
-  padding-bottom: 94px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include afterBreak (desk) {
+  
+   padding-top: 94px;
+   padding-bottom: 94px;
+  }
 }
 
 .container {
-  width: 1200px;
+  
   padding: 0 15px;
   margin: 0 auto;
+
+  @include afterBreak (mob) {
+    width: 480px;    
+  }
+
+  @include afterBreak (tab) {
+    width: 768px;    
+  }
+
+  @include afterBreak (desk) {
+    width: 1200px;    
+  }
+  
 }
 
 .title {

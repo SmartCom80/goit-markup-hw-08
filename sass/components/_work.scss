@@ -1,10 +1,13 @@
 /* Section Our Works */
 
- .work {
+.works {
+  @include beforeBreak (desk) {
+    @extend %hidden;
+  }
   padding-top: 0;
 }
 
-.work__card {
+.works__card {
   position: relative;
 
   &:not(:first-child) {
@@ -12,8 +15,8 @@
   }  
 }
 
-.work__subtitle {
-  //@include centering_content ();
+.works__subtitle {
+  @include centering_content ();
   position: absolute;
   left: 0;
   bottom: 0;
