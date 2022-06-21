@@ -7,19 +7,37 @@
 }
 
 .footer__container {
-  //display: flex;
+
+  @include beforeBreak (tab) {
+    @include centering_content ();
+    flex-direction: column;
+  }
+
+  @include betweenBreak (tab, desk) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  @include afterBreak (desk) {
+  display: flex;
   align-items: baseline;
+  justify-content: space-between;
+  }
+  
 }
 
 .footer__link {
-  display: inline-block;
   margin-bottom: 20px;
-}
 
-// .footer__link,
-// .address__link {
-//   text-decoration-line: none;
-// }
+  @include beforeBreak (tab) {
+    display: block;
+  }
+
+  @include afterBreak (desk) {
+    display: block;
+  }
+}
 
 .footer__logo{
   @extend .logo;
@@ -28,6 +46,11 @@
   
   &--accent {
     color: getColor('accent-color');
+  }
+
+  @include beforeBreak (desk) {
+    display: block;
+    text-align: center;
   }
 }
 

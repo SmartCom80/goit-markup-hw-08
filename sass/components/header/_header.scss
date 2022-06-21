@@ -1,26 +1,86 @@
 /* Page-header style */
 
 .header {
-  border-bottom: 1px solid#ECECEC;
+    border-bottom: 1px solid#ECECEC;
 }
+
 .header__container {
-  //display: flex;
+  
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @include beforeBreak (tab) {
+    position: relative;
+  }
 }
 
 .header__link {
   display: inline-block;
-  padding-top: 24px;
-  padding-bottom: 25px;
-  margin-right: 93px;
-  border: none;
+  @include beforeBreak (tab) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  @include betweenBreak (tab, desk) {
+    padding-top: 26px;
+    padding-bottom: 26px;
+    margin-right: 88px;
+  }
+
+  @include afterBreak (desk) {
+  
+    padding-top: 24px;
+    padding-bottom: 25px;
+    margin-right: 93px;
+  }
 }
 
 .header__logo {
   @extend .logo;
 
   &--accent {
-    color: getColor('accent-color');
+    color: getColor("accent-color");
+  }
+}
+
+.nav__btn {
+  
+  @include beforeBreak (tab) {
+    z-index: 1000;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    background-color: transparent;
+    border: none;
+
+    fill: getColor('pr-color');
+    
+    @include transitionable(fill);
+
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+    fill: getColor('accent-color');
+    }
+
+    & .icon-cross {
+    display: none;
+    }
+
+    &.is-open .icon-cross{
+    display: block;
+    }
+
+    &.is-open .icon-menu {
+    display: none;
+    }
+}
+
+  @include afterBreak (tab) {
+    display: none;
   }
 }
 

@@ -1,13 +1,28 @@
 /* Section Our Works */
 
-.works {
-  @include beforeBreak (desk) {
-    @extend %hidden;
+
+.work {
+  @include beforeBreak (desk){
+    position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
   }
+    
   padding-top: 0;
 }
 
-.works__card {
+.work__list {
+  @include centering_content(flex);
+}
+
+.work__card {
   position: relative;
 
   &:not(:first-child) {
@@ -15,7 +30,8 @@
   }  
 }
 
-.works__subtitle {
+.work__subtitle {
+ 
   @include centering_content ();
   position: absolute;
   left: 0;

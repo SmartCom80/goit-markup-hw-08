@@ -30,7 +30,6 @@ body {
   @include afterBreak (desk) {
     width: 1200px;    
   }
-  
 }
 
 .title {
@@ -42,7 +41,7 @@ body {
 }
 
 .social__link {
-  //@include centering_content();
+  @include centering_content();
 
   width: 44px;
   height: 44px;

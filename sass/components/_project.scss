@@ -4,20 +4,41 @@
 }
 
 .filter__list {
-  //@include centering_content();
+  display: flex;
+  flex-wrap: wrap;
   
   // /* display: flex; */
   // justify-content: center;
   // align-items: flex-start;
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
+  @include afterBreak (tab) {
+    @include centering_content();
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  } 
 }
 
-.filter__item:not(:first-child) {
-  margin-left: 8px;
-}
+.filter__item {
+
+   @include beforeBreak (tab) {
+    &:nth-child(2) {
+      margin-left: 8px;
+      margin-right: 8px;
+      margin-bottom: 15px;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+    }
+  }
+
+   @include afterBreak (desk) {
+     &:not(:first-child) {
+      margin-left: 8px;
+     }
+   }
+}  
 
 .filter__btn {
   @extend .btn__filtering;
@@ -29,12 +50,7 @@
   text-align: center;
 
   @include transitionable(color, background-color, box-shadow); 
-  // @include transitionable(background-color);
-  // @include transitionable(box-shadow);
-  // transition: color 250ms $bezier-timing,
-  //   background-color 250ms $bezier-timing,
-  //   box-shadow 250ms $bezier-timing;
-
+  
   &:hover,
   &:focus {
   color: getColor('inv-color');
@@ -50,40 +66,76 @@
 .filter__btn--current {
   @extend .btn__filtering;
 
-  color: getColor('inv-color');
-  background-color: getColor('accent-color');
+  color: getColor("inv-color");
+  background-color: getColor("accent-color");
 
-  //@include transitionable(box-shadow);
-  transition: box-shadow 250ms $bezier-timing;
-
+  @include transitionable(box-shadow);
+ 
   &:hover,
   &:focus {
   box-shadow: $cardSet-shadow;
   }
 }
 
-
 /* Section Projects */
 
 .project__list {
-  /* display: flex; */
-  flex-wrap: wrap;
-  margin-left: calc(#{$gap-cardSet} * (-1));
-  margin-top: calc(#{$gap-cardSet} * (-1));
+  @include beforeBreak (tab) {
+    @include centering_content (block);
+    margin-top: 40px;
+  }
+
+  @include betweenBreak (tab, desk) {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include thumb_flexBasis;
+  }
+
+  @include afterBreak (desk) {
+    @include centering_content();
+    flex-wrap: wrap;
+
+    @include thumb_flexBasis;
+
+    // display: flex; 
+    // flex-wrap: wrap;
+    // margin-left: calc(#{$gap-cardSet} * (-1));
+    // margin-top: calc(#{$gap-cardSet} * (-1));
+  }
 }
+  
 
 .project__card {
-  flex-basis: calc(1px *(100% / 3) - #{$gap-cardSet});
-  margin-left: $gap-cardSet;
-  margin-top: $gap-cardSet; 
+  @include beforeBreak (tab) {
+    &:not(:last-child) {
+    margin-bottom: $gap-cardSet;
+    }
+  }
+
+  @include betweenBreak (tab, desk) {
+
+    @include flexBasis (2);
+    // flex-basis: calc(1px *(100% / 2) - #{$gap-cardSet});
+    // margin-left: $gap-cardSet;
+    // margin-top: $gap-cardSet; 
+  }
+
+  @include afterBreak (desk) {
+
+    @include flexBasis (3);
+    // flex-basis: calc(1px *(100% / 3) - #{$gap-cardSet});
+    // margin-left: $gap-cardSet;
+    // margin-top: $gap-cardSet; 
+  }
 }
 
 .project__link {
   display: block;
 
-   //@include transitionable(box-shadow);
-   transition: box-shadow 250ms $bezier-timing;
-
+   @include transitionable(box-shadow);
+  
   &:hover,
   &:focus {
     box-shadow: $projectSet-shadow;    
@@ -115,14 +167,8 @@
   opacity: 0;
   transform: translateY(100%);
 
-  // @include transitionable(opacity);
-  // @include transitionable(background-color);
-  // @include transitionable(transform);
-
-  transition: transform 250ms $bezier-timing, 
-  opacity 250ms $bezier-timing, 
-  sbackground-color 250ms $bezier-timing;
-
+  @include transitionable(opacity, background-color, transform);
+  
   .project__link:hover &,
   .project__link:focus & {
     opacity: 1;
@@ -137,7 +183,7 @@
   // line-height: 1.56;
   // letter-spacing: 0.03em;
 
-  color: getColor('inv-color');
+  color: getColor("inv-color");
 }
 
 .project__content {
@@ -163,5 +209,5 @@
   // line-height: 1.88;
   // letter-spacing: 0.03em;
 
-  color: getColor('sec-color');
+  color: getColor("sec-color");
 }

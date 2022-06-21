@@ -1,6 +1,12 @@
 /* Address */
 .address {
   font-style: normal;
+
+  @include beforeBreak (desk) {
+    text-align: center;
+  }
+
+
 }
 
 .address__post {
@@ -13,9 +19,8 @@
   // line-height: 1.71;
   // letter-spacing: 0.03em;
 
-  //@include transitionable(color);
-  transition: opacity 250ms $bezier-timing;
-
+  @include transitionable(color);
+  
   &:hover,
   &:focus {
    color: getColor('accent-color');
@@ -37,9 +42,8 @@
   // line-height: 1.71;
   // letter-spacing: 0.03em;
 
-  //@include transitionable(color);
-  transition: color 250ms $bezier-timing;
-
+  @include transitionable(color);
+  
   &:hover,
   &:focus {
     color: getColor('accent-color');

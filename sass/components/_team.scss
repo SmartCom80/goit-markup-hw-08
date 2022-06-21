@@ -3,6 +3,28 @@
   background-color: getColor('btn-bg-color');
 }
 
+.team__title {
+  @include beforeBreak (tab) {
+    margin-bottom: 30px;
+  }
+}
+
+.team__list {
+  @include betweenBreak (tab, desk) {
+    @include centering_content();
+    flex-wrap: wrap;
+
+    @include thumb_flexBasis;
+  //  margin-left: calc(#{$gap-cardSet} * (-1));
+  //  margin-top: calc(#{$gap-cardSet} * (-1));
+  //  align-items:stretch;
+  }
+
+  @include afterBreak (desk) {
+    @include centering_content();
+  }
+}
+
 .team__card {
   @include centering_content(block);
   background-color: getColor('pr-bg-color');
@@ -13,8 +35,20 @@
   // 0px 2px 1px rgba(0, 0, 0, 0.2)
   border-radius: 0px 0px 4px 4px;
 
-  &:not(:first-child) {
-    margin-left: $gap-cardSet;
+  @include beforeBreak (tab){
+  &:not(:last-child) {
+      margin-bottom: $gap-cardSet;
+    }
+  }
+
+  @include betweenBreak (tab, desk) {
+    @include flexBasis (2);
+  }
+
+  @include afterBreak (desk) {
+    &:not(:first-child) {
+      margin-left: $gap-cardSet;
+    }
   }
 }
 
@@ -46,9 +80,14 @@
   // letter-spacing: 0.03em;
 }
 
+.social__list {
+  @include centering_content();
+}
+
 .social__card:not(:first-child) {
   margin-left: 10px;
 }
+
 
 .social__link {
   @include centering_content();
@@ -60,8 +99,7 @@
   height: 44px;
   border-radius: 50%;
 
-  //@include transitionable(background-color);
-  transition: background-color 250ms $bezier-timing;
+  @include transitionable(background-color);
 
   &:hover,
   &:focus {
@@ -72,8 +110,7 @@
 .social__icon {
   fill: getColor('pr-icon-fill');
 
-  //@include transitionable(fill);
-  transition: fill 250ms $bezier-timing;
+  @include transitionable(fill);
 
   .social__link:hover &,
   .social__link:focus & {

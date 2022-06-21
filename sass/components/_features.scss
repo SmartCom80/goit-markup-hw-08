@@ -8,24 +8,24 @@
    @include centering_content();
    flex-wrap: wrap;
 
-   margin-left: calc(#{$gap-cardSet} * (-1));
-   margin-top: calc(#{$gap-cardSet} * (-1));
-   align-items:stretch;
+   @include thumb_flexBasis;
+  //  margin-left: calc(#{$gap-cardSet} * (-1));
+  //  margin-top: calc(#{$gap-cardSet} * (-1));
+  //  align-items:stretch;
   }
 
   @include afterBreak (desk) {
     @include centering_content();
-
   }
 }
 
 .feature__card {
   @include beforeBreak (tab){
-  @include centering_content('block');
+    @include centering_content('block');
 
-  &:not(:first-child) {
-    margin-bottom: $gap-cardSet;
-  }
+    &:not(:first-child) {
+      margin-bottom: $gap-cardSet;
+    }
 }
 
   @include betweenBreak (tab, desk) {
@@ -37,7 +37,7 @@
     @include centering_content(block);
 
     &:not(:first-child) {
-    margin-left: $gap-cardSet;
+      margin-left: $gap-cardSet;
     }
   }
 }

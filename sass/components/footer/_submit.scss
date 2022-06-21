@@ -1,12 +1,23 @@
 /* Footer SignUp form */
 
-// .follow {
+ .follow {
+  @include beforeBreak (tab) {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  @include betweenBreak (tab, desk) {
+    display: block;
+    margin-top: 60px;
+    text-align: center;
+  }
 //   // width: 570px;
 //   // margin-left: 93px;
-// }
+ }
 
 .follow__title {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 
   @include font(700, 14px, 1.25, 0.03em, uppercase);
   // font-family: 'Roboto';
@@ -20,12 +31,24 @@ margin-bottom: 20px;
   color: getColor('inv-color');
 }
 
-.follow__field {
-  //display: flex;
-  justify-content: flex-end;
+ .follow__field {
+
+  @include betweenBreak (tab, desk) {
+    display: block;
+    justify-content: center;
+    width: 450px;
+  }
+//   //display: flex;
+//   //justify-content: flex-end;
 }
 
 .follow__input {
+  @include beforeBreak (desk) {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
   // width: 358px;
   padding: 14px 16px;
 
@@ -42,9 +65,8 @@ margin-bottom: 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
 
-  //@include transitionable(border);
-  transition: border 250ms $bezier-timing;
-
+  @include transitionable(border);
+  
   .follow__field:focus &,
   .follow__field:hover & {
     border: 1px solid getColor('accent-color');

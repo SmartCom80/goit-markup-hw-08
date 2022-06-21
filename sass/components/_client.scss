@@ -2,46 +2,75 @@
 
 .client__title {
   @include font(700, 36px, 1.17, 0.03em);
-  //margin-bottom: 50px;
-  // text-align: center;
-
-  // font-weight: 700;
-  // font-size: 36px;
-  // line-height: 1.16;
-
-  // letter-spacing: 0.03em;
 }
 
-.client__item:not(:first-child) {
-  margin-left: $gap-cardSet;
+.client__list {
+
+   @include beforeBreak (tab) {
+    @include centering_content();
+    flex-wrap: wrap;
+
+    @include thumb_flexBasis;
+  }
+
+  @include betweenBreak (tab, desk) {
+    @include centering_content();
+    flex-wrap: wrap;
+
+    @include thumb_flexBasis;
+  }
+  
+  @include afterBreak (desk) {
+    @include centering_content();
+    }
+
+}
+
+.client__item{
+  @include beforeBreak (tab){
+    @include flexBasis (2);
+}
+
+  @include betweenBreak (tab, desk) {
+    
+    @include flexBasis (3);
+  }
+
+  @include afterBreak (desk) {
+    
+    &:not(:first-child) {
+      margin-left: $gap-cardSet;
+    }
+  }
+
 }
 
 .client__link {
-  //@include centering_content();
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-
-  width: 170px;
-  height: 92px;
+  @include centering_content();
+  
+  width: 100%;
+  height: 90px;
 
   border: 1px solid getColor('pr-icon-fill');
   border-radius: 4px;
 
-  //@include transitionable(border);
-  transition: border 250ms $bezier-timing;
-
+  @include transitionable(border);
+  
   &:hover,
   &:focus {
     border: 1px solid getColor('accent-color');
+  }
+
+  @include afterBreak (desk) {
+    width: 170px;
   }
 }
 
 .client__icon {
   fill: getColor('pr-icon-fill');
-  //@include transitionable(fill);
-  transition: fill 250ms $bezier-timing;
-
+  
+  @include transitionable(fill);
+  
   .client__link:hover &,
   .client__link:focus & {
     fill: getColor('accent-color');

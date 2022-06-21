@@ -1,39 +1,146 @@
 /*Header Contacts */
-.contact__list {
-  //display: flex;
+
+  .contact__list {
+  @include beforeBreak (tab) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @include betweenBreak (tab, desk) {
+    display: block;
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  @include afterBreak (desk) {
+  display: flex;
   align-items: center;
   margin-left: auto;
+
+   @include transitionable(color);
+  
+   &:hover,
+   &:focus {
+   color: getColor('accent-color');
+   }
+  }
 }
 
-.contact__item + .contact__item {
-  margin-left: $gap-cardSet;
+.contact__item {
+  @include beforeBreak (tab) {
+    &:last-child {
+      margin-bottom: 32px;
+    }
+
+    &:first-child {
+      margin-bottom: 64px;
+    }
+  }
+ 
+  @include betweenBreak (tab, desk) {
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  @include afterBreak (desk) {
+    &:not(:first-child) {
+      margin-left: $gap-cardSet;
+    }
+  }
 }
 
 .contact__link {
-  //display: flex;
-  align-items: center;
-  padding: 15px 0px;
-
   color: getColor('sec-color');
   @include font(500, 14px, 1.14, 0.02em);
-  // font-weight: 500;
-  // line-height: 1.14;
-  // letter-spacing: 0.02em;
-  
-  //@include transitionable(color);
-  transition: color 250ms $bezier-timing;
+    
+  @include transitionable(color);
 
   &:hover,
   &:focus {
   color: getColor('accent-color');
   }
+  
+  @include beforeBreak (tab) {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+  }
+
+  @include betweenBreak (tab, desk) {
+    @include font(500, 12px, 1.17, 0.02em);
+  }
+
+  @include afterBreak (desk) {
+    display: flex;
+    align-items: center;
+    padding: 32px 0px;
+  }
+
+    &--call {
+      @include beforeBreak (tab) {
+        @include font(500, 34px, 1.14, 0.02em);
+        
+        color: getColor('accent-color');
+      }
+    }  
+
+    &--mail {
+      @include beforeBreak (tab) {
+        @include font(500, 24px, 1.17, 0.02em);
+        
+        color: getColor('sec-color');
+      }
+    }
+
+    @include betweenBreak (tab, desk) {
+      display: flex;
+    }
 }
 
 .contact__icon {
+  @include beforeBreak (tab) {
+    display: none;
+  }
+  
+  @include afterBreak (tab) {
   margin-right: 10px;
-
+  margin-left: 0;
   fill: currentColor;
 
-  //@include transitionable(fill);
-  transition: fill 250ms $bezier-timing;
+  @include transitionable(fill);
+  }
+}
+
+.contact__socialList {
+  @include beforeBreak (tab) {
+    display: flex;
+  }
+
+  @include afterBreak (tab) {
+    display: none;
+  }
+}
+
+.contact__socialItem {
+  @include beforeBreak (tab) {
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+}
+
+.contact__socialLink {
+  @include beforeBreak (tab) {
+    display: flex;
+    @include font(500, 18px, 1.22, 0.02em);
+    
+      color: getColor('accent-color');
+  }
+}
+
+.contact__separator {
+  margin-left: 10px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  fill: rgba(33, 33, 33, 0.2);
 }

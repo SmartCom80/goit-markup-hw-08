@@ -10,26 +10,30 @@
   opacity: 1;
   visibility: visible;
 
-  // @include transitionable(opacity);
-  // @include transitionable(visibility);
-
-  transition: opacity 250ms $bezier-timing,
-    visibility 250ms $bezier-timing;
-
+  @include transitionable(opacity, visibility);
+  
   &.is-hidden {
     @extend %hidden;
     opacity: 0;
     visibility: hidden;
 
-    transition: opacity 250ms $bezier-timing,
-    visibility 250ms $bezier-timing, overflow 250ms $bezier-timing;
+    @include transitionable(opacity, visibility, overflow);
   }
 }
 
 .modal {
   position: absolute;
+
+  @include beforeBreak (desk) {
+    width: 450px;
+    height: 609px;
+  }
+
+  @include afterBreak (desk) {
   width: 528px;
   height: 581px;
+  }
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -39,14 +43,10 @@
   box-shadow: $cardSet-shadow;
   background-color: getColor("pr-bg-color");
 
-  //@include transitionable(box-shadow);
-  transition: box-shadow 250ms $bezier-timing, 
-  visibility 250ms $bezier-timing, 
-  opacity 250ms $bezier-timing;
-
+  @include transitionable(opacity, visibility, box-shadow);
+  
   border-radius: 4px;
 
-  //   background: var(--pr-bg-color);
   //   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
   //   0px 1px 1px rgba(0, 0, 0, 0.14),
   //   0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -66,9 +66,8 @@
   border-radius: 50%;
   padding: 0;
 
-  //@include transitionable(fill);
-  transition: fill 250ms $bezier-timing;
-
+  @include transitionable(fill);
+  
   background-color: transparent;
   cursor: pointer;
 
@@ -89,21 +88,30 @@
   margin-bottom: 12px;
   text-align: center;
 
-  @include font(700, 20px, 1.15, 0.03em);
-  // font-weight: 700;
-  // font-size: 20px;
-  // line-height: 1.15;
-  // letter-spacing: 0.03em;
+  @include beforeBreak (desk) {
+    @include font(700, 20px, 1.5, 0.03em);
+  }
 
+  @include afterBreak (desk) {
+    @include font(700, 20px, 1.15, 0.03em);
+  }
   color: getColor('pr-color');
 }
 
-.form__field {
-  //display: flex;
+.form__item {
   position: relative;
-  //flex-direction: column;
   margin-bottom: 10px;
+  
+  &:last-child {
+    margin-bottom: 20px;
+  }
 }
+
+// .form__field {
+//   //display: flex;
+  
+//   //flex-direction: column;
+// }
 
 .form__label,
 .comment__label {
@@ -112,15 +120,18 @@
   margin-bottom: 4px;
 
   @include font(400, 12px, 1.17, 0.01em);
-  // font-size: 12px;
-  // line-height: 1.17;
-  // letter-spacing: 0.01em;
-
+  
   color: getColor("sec-color");
+  @include transitionable(color);
+
+  .form__input:hover ~ &,
+  .form__input:focus ~ & {
+    color: getColor("accent-color");
+  }
 }
 
 .form__input {
-  padding: 10px 42px;
+  padding: 8px 42px;
   width: 100%;
 
   font-size: inherit;
@@ -128,10 +139,9 @@
   border-radius: 4px;
   cursor: pointer;
 
-  //@include transitionable(border);
-  transition: border 250ms $bezier-timing;
-
-  &:hover,
+  @include transitionable(color, border);
+ 
+  &:hover,  
   &:focus {
     border: 1px solid getColor("accent-color");
   }
@@ -140,24 +150,22 @@
 .form__icon {
   position: absolute;
   display: inline-block;
-  top: 65%;
+  top: 70%;
   left: 12px;
   transform: translateY(-50%);
   fill: currentColor;
 
-  //@include transitionable(fill);
-  transition: fill 250ms $bezier-timing;
-
+  @include transitionable(fill);
+ 
   .form__input:focus ~ & {
-    fill: getColor('accent-color');
+    fill: getColor("accent-color");
   }
 }
 
-.comment__field {
-  //display: flex;
-  //flex-direction: column;
-  margin-bottom: 20px;
-}
+// .comment__field {
+//   //display: flex;
+//   //flex-direction: column;
+// }
 
 .comment__input {
   width: 100%;
@@ -170,10 +178,9 @@
   border-radius: 4px;
   cursor: pointer;
 
-  //@include transitionable(border);
-  transition: border 250ms $bezier-timing;
-
-  &:hover,
+  @include transitionable(border);
+  
+  &:hover, 
   &:focus {
     border: 1px solid getColor("accent-color");
   }
@@ -191,10 +198,17 @@
 .checkbox__field {
   position: relative;
   display: block;
-  padding-left: 39px;
   margin-bottom: 30px;
 
-  @include font(400, 14px, 1.71, 0.03em);
+  @include beforeBreak (desk) {
+    padding-left: 24px;
+    @include font(400, 12px, 1.17, 0.03em);
+   }
+
+  @include afterBreak (desk) {
+    padding-left: 39px;
+   @include font(400, 14px, 1.71, 0.03em);
+  }
   // font-size: 14px;
   // line-height: 1.71;
   // letter-spacing: 0.03em;
@@ -206,40 +220,60 @@
   @extend %hidden;
 
   top: 50%;
-  left: 21px;
+
+  @include beforeBreak (desk) {
+    left: 0;
+  }
+
+  @include afterBreak (desk) {
+    left: 21px;
+  }
+  
   transform: translateY(-50%);
 }
 
 .uncheck__icon {
   position: absolute;
   top: 50%;
-  left: 12px;
+
+  @include beforeBreak (desk) {
+    left: 0;
+  }
+
+  @include afterBreak (desk) {
+    left: 21px;
+  }
   transform: translateY(-50%);
   opacity: 1;
 
-  //@include transitionable(opacity);
-  transition: opacity 250ms $bezier-timing, fill 250ms $bezier-timing;
-
+  @include transitionable(opacity, fill);
+  
   .checkbox:checked ~ & {
     opacity: 0;
   }
 
   .checkbox__field:hover &,
   .checkbox__field:focus & {
-    fill: getColor('accent-color');
+    fill: getColor("accent-color");
   }
 }
 
 .check__icon {
   position: absolute;
   top: 50%;
-  left: 12px;
+
+ @include beforeBreak (desk) {
+    left: 0;
+  }
+
+  @include afterBreak (desk) {
+    left: 21px;
+  }
   transform: translateY(-50%);
   opacity: 0;
 
-  //@include transitionable(opacity);
-  transition: opacity 250ms $bezier-timing;
-
+  @include transitionable(opacity);
+  
   .checkbox:checked ~ & {
     opacity: 1;
   }
@@ -248,7 +282,7 @@
 .checkbox__link {
   padding: 0px;
   text-decoration: underline;
-  color: getColor('accent-color');
+  color: getColor("accent-color");
 }
 
 .btn__send {

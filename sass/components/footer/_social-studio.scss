@@ -1,7 +1,10 @@
 /* Footer social link */
 
 .studio {
-   margin-left: 70px;
+   @include beforeBreak (tab) {
+      margin: 60px auto;
+      text-align: center;
+   }
 }
 
 .studio__title {
@@ -14,6 +17,16 @@
 //    text-transform: uppercase;
 
    color: getColor('inv-color');
+
+   text-align: center;
+
+   @include betweenBreak (tab, desk) {
+      margin-top: 5px;
+    }
+}
+
+.studio__socialList {
+   @include centering_content (); 
 }
 
 .social__card {
@@ -26,9 +39,9 @@
     @extend .social__link;
 
    background-color: rgba(255, 255, 255, 0.1);
-   //@include transitionable(background-color);
-   transition: background-color 250ms $bezier-timing;
-
+   
+    @include transitionable (background-color);
+  
   &:hover,
   &:focus {
    background-color: getColor('accent-color');
