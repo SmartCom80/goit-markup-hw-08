@@ -49,7 +49,9 @@
   @include font(500, 16px, 1.62, 0.03em);
   text-align: center;
 
-  @include transitionable(color, background-color, box-shadow); 
+  transition: (color 250ms $bezier-timing),
+   (background-color 250ms $bezier-timing), 
+   (box-shadow 250ms $bezier-timing);
   
   &:hover,
   &:focus {
@@ -69,7 +71,7 @@
   color: getColor("inv-color");
   background-color: getColor("accent-color");
 
-  @include transitionable(box-shadow);
+  transition: box-shadow 250ms $bezier-timing;
  
   &:hover,
   &:focus {
@@ -134,7 +136,7 @@
 .project__link {
   display: block;
 
-   @include transitionable(box-shadow);
+  transition: box-shadow 250ms $bezier-timing;
   
   &:hover,
   &:focus {
@@ -167,8 +169,10 @@
   opacity: 0;
   transform: translateY(100%);
 
-  @include transitionable(opacity, background-color, transform);
-  
+  transition: (opacity 250ms $bezier-timing),
+   (background-color 250ms $bezier-timing), 
+   (transform 250ms $bezier-timing);
+
   .project__link:hover &,
   .project__link:focus & {
     opacity: 1;

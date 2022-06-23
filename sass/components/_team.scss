@@ -27,6 +27,8 @@
 
 .team__card {
   @include centering_content(block);
+  margin-left: auto;
+  margin-right: auto;
   background-color: getColor('pr-bg-color');
 
   box-shadow: $cardSet-shadow;
@@ -99,7 +101,7 @@
   height: 44px;
   border-radius: 50%;
 
-  @include transitionable(background-color);
+  transition: background-color 250ms $bezier-timing;
 
   &:hover,
   &:focus {
@@ -110,7 +112,7 @@
 .social__icon {
   fill: getColor('pr-icon-fill');
 
-  @include transitionable(fill);
+  transition: fill 250ms $bezier-timing;
 
   .social__link:hover &,
   .social__link:focus & {

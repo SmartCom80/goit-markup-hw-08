@@ -9,15 +9,19 @@
 
   opacity: 1;
   visibility: visible;
+  overflow-y: scroll;
 
-  @include transitionable(opacity, visibility);
+  transition: (opacity 250ms $bezier-timing),
+   (visibility 250ms $bezier-timing);
   
   &.is-hidden {
     @extend %hidden;
     opacity: 0;
     visibility: hidden;
 
-    @include transitionable(opacity, visibility, overflow);
+  transition: (opacity 250ms $bezier-timing),
+   (visibility 250ms $bezier-timing), 
+   (overflow 250ms $bezier-timing);
   }
 }
 
@@ -43,7 +47,9 @@
   box-shadow: $cardSet-shadow;
   background-color: getColor("pr-bg-color");
 
-  @include transitionable(opacity, visibility, box-shadow);
+  transition: (opacity 250ms $bezier-timing),
+   (visibility 250ms $bezier-timing),
+   (box-shadow 250ms $bezier-timing);
   
   border-radius: 4px;
 
@@ -66,7 +72,7 @@
   border-radius: 50%;
   padding: 0;
 
-  @include transitionable(fill);
+  transition: fill 250ms $bezier-timing;
   
   background-color: transparent;
   cursor: pointer;
@@ -122,7 +128,7 @@
   @include font(400, 12px, 1.17, 0.01em);
   
   color: getColor("sec-color");
-  @include transitionable(color);
+  transition: color 250ms $bezier-timing;
 
   .form__input:hover ~ &,
   .form__input:focus ~ & {
@@ -139,7 +145,7 @@
   border-radius: 4px;
   cursor: pointer;
 
-  @include transitionable(color, border);
+  transition: (color 250ms $bezier-timing), (border 250ms $bezier-timing);
  
   &:hover,  
   &:focus {
@@ -155,7 +161,7 @@
   transform: translateY(-50%);
   fill: currentColor;
 
-  @include transitionable(fill);
+  transition: fill 250ms $bezier-timing;
  
   .form__input:focus ~ & {
     fill: getColor("accent-color");
@@ -178,7 +184,7 @@
   border-radius: 4px;
   cursor: pointer;
 
-  @include transitionable(border);
+  transition: border 250ms $bezier-timing;
   
   &:hover, 
   &:focus {
@@ -246,8 +252,8 @@
   transform: translateY(-50%);
   opacity: 1;
 
-  @include transitionable(opacity, fill);
-  
+  transition: (opacity 250ms $bezier-timing), (fill 250ms $bezier-timing);
+
   .checkbox:checked ~ & {
     opacity: 0;
   }
@@ -272,7 +278,7 @@
   transform: translateY(-50%);
   opacity: 0;
 
-  @include transitionable(opacity);
+  transition: opacity 250ms $bezier-timing;
   
   .checkbox:checked ~ & {
     opacity: 1;
@@ -291,8 +297,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  //@include transitionable(background-color);
-  transition: background-color 250ms $bezier-timing;
+ transition: background-color 250ms $bezier-timing;
 
   &:hover,
   &:focus {

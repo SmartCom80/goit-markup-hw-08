@@ -10,8 +10,11 @@
 }
 
 .nav__item {
-  
-  //margin-bottom: 32px;
+  @include beforeBreak (tab) {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
   
   @include afterBreak (tab) {
     &:not(:first-child){
@@ -28,7 +31,7 @@
     margin-bottom: 32px;
     @include font(500, 14px, 1.14, 0.02em);
   
-    @include transitionable(color);
+    transition: color 250ms $bezier-timing;
   }
 
 
@@ -39,14 +42,18 @@
 
 
   &--current {
+
+    @include beforeBreak (tab) {
+      margin-bottom: 4px;
+    }
     display: inline-block;
     position: relative;
     margin-bottom: 28px;
       
     color: getColor('accent-color');
   
-    @include transitionable(color);
-      
+    transition: color 250ms $bezier-timing;
+
     @include afterBreak (tab) {
       &::after {
       content: "";
@@ -62,7 +69,8 @@
       border: 2px solid getColor('accent-color');
       border-radius: 2px;
   
-      @include transitionable(background-color, border);
+      transition: (background-color 250ms $bezier-timing), 
+        (border 250ms $bezier-timing);
       }
     }
   }

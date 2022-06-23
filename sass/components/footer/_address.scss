@@ -19,7 +19,7 @@
   // line-height: 1.71;
   // letter-spacing: 0.03em;
 
-  @include transitionable(color);
+  transition: color 250ms $bezier-timing;
   
   &:hover,
   &:focus {
@@ -42,7 +42,7 @@
   // line-height: 1.71;
   // letter-spacing: 0.03em;
 
-  @include transitionable(color);
+  transition: color 250ms $bezier-timing;
   
   &:hover,
   &:focus {

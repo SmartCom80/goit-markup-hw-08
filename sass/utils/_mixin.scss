@@ -1,11 +1,9 @@
  //Function Transition
- @mixin transitionable($property...) {
-  @for  $i from 0 to length($property) {
-      transition: nth($property, $i + 1)  250ms $bezier-timing;
-  }
-}
-
-
+//  @mixin transitionable($property...) {
+//   @for  $i from 0 to length($property) {
+//       transition: nth(($property 250ms $bezier-timing,), $i + 1);
+//   }
+// }
 
 
 // Mixin FontValue

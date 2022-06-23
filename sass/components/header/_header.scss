@@ -55,23 +55,15 @@
     background-color: transparent;
     border: none;
 
-    fill: getColor('pr-color');
-    
-    @include transitionable(fill);
-
     cursor: pointer;
-
-    &:hover,
-    &:focus {
-    fill: getColor('accent-color');
-    }
 
     & .icon-cross {
     display: none;
     }
 
     &.is-open .icon-cross{
-    display: block;
+      display: block;
+      fill:  currentColor;
     }
 
     &.is-open .icon-menu {
@@ -84,3 +76,27 @@
   }
 }
 
+.icon-menu {
+  @include beforeBreak (tab) {
+  fill: currentColor;
+  transition: fill 250ms $bezier-timing;
+
+  .nav__btn:hover &,
+  .nav__btn:focus & {
+    fill: getColor ('accent-color');
+  }
+  }
+}
+
+.icon-cross {
+  @include beforeBreak (tab) {
+    fill: currentColor;
+    transition: fill 250ms $bezier-timing;
+
+    .nav__btn.is-open:hover &,
+    .nav__btn.is-open:focus & {
+      fill: getColor ('accent-color');
+    }
+  }
+  
+}

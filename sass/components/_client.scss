@@ -54,7 +54,7 @@
   border: 1px solid getColor('pr-icon-fill');
   border-radius: 4px;
 
-  @include transitionable(border);
+  transition: border 250ms $bezier-timing;
   
   &:hover,
   &:focus {
@@ -69,7 +69,7 @@
 .client__icon {
   fill: getColor('pr-icon-fill');
   
-  @include transitionable(fill);
+  transition: fill 250ms $bezier-timing;
   
   .client__link:hover &,
   .client__link:focus & {
