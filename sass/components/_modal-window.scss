@@ -27,6 +27,7 @@
 
 .modal {
   position: absolute;
+  z-index: 1000;
 
   @include beforeBreak (desk) {
     width: 450px;
@@ -113,27 +114,24 @@
   }
 }
 
-// .form__field {
-//   //display: flex;
+.form__field,
+.comment__field {
+  display: block;
   
-//   //flex-direction: column;
-// }
-
-.form__label,
-.comment__label {
-  display: inline-block;
-
-  margin-bottom: 4px;
 
   @include font(400, 12px, 1.17, 0.01em);
   
   color: getColor("sec-color");
   transition: color 250ms $bezier-timing;
 
-  .form__input:hover ~ &,
-  .form__input:focus ~ & {
+  .form__input:hover &,
+  .form__input:focus & {
     color: getColor("accent-color");
   }
+}
+
+.form__container {
+  position: relative;
 }
 
 .form__input {
@@ -156,10 +154,10 @@
 .form__icon {
   position: absolute;
   display: inline-block;
-  top: 70%;
+  top: 50%;
   left: 12px;
   transform: translateY(-50%);
-  fill: currentColor;
+  fill: getColor('pr-color');
 
   transition: fill 250ms $bezier-timing;
  
@@ -167,11 +165,6 @@
     fill: getColor("accent-color");
   }
 }
-
-// .comment__field {
-//   //display: flex;
-//   //flex-direction: column;
-// }
 
 .comment__input {
   width: 100%;
