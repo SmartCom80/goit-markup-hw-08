@@ -124,8 +124,8 @@
   color: getColor("sec-color");
   transition: color 250ms $bezier-timing;
 
-  .form__input:hover &,
-  .form__input:focus & {
+  .form__input:hover ~ &,
+  .form__input:focus ~ & {
     color: getColor("accent-color");
   }
 }
@@ -186,10 +186,7 @@
 
   &::placeholder {
     @include font(400, 14px, 1.14, 0.01em);
-    // font-size: 14px;
-    // line-height: 1.14;
-    // letter-spacing: 0.01em;
-  
+      
     color: rgba(117, 117, 117, 0.5);
   }
 }

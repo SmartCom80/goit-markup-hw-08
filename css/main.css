@@ -586,14 +586,14 @@ body {
     border: none;
     cursor: pointer;
   }
-  .nav__btn .icon-cross {
+  .nav__btn .icon__cross {
     display: none;
   }
-  .nav__btn.is-open .icon-cross {
+  .nav__btn.is-open .icon__cross {
     display: block;
     fill: currentColor;
   }
-  .nav__btn.is-open .icon-menu {
+  .nav__btn.is-open .icon__menu {
     display: none;
   }
 }
@@ -605,26 +605,14 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-  .icon-menu {
+  .icon {
     fill: currentColor;
     -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .nav__btn:hover .icon-menu,
-  .nav__btn:focus .icon-menu {
-    fill: getColor "accent-color";
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .icon-cross {
-    fill: currentColor;
-    -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .nav__btn.is-open:hover .icon-cross,
-  .nav__btn.is-open:focus .icon-cross {
-    fill: getColor "accent-color";
+  .nav__btn:hover .icon, .nav__btn.is-open:hover .icon,
+  .nav__btn:focus .icon, .nav__btn.is-open:focus .icon {
+    fill: #2196f3;
   }
 }
 
@@ -999,10 +987,10 @@ body {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form__input:hover .form__field,
-.form__input:focus .form__field, .form__input:hover
+.form__input:hover ~ .form__field,
+.form__input:focus ~ .form__field, .form__input:hover ~
 .comment__field,
-.form__input:focus
+.form__input:focus ~
 .comment__field {
   color: #2196f3;
 }

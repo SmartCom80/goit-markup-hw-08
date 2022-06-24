@@ -57,16 +57,16 @@
 
     cursor: pointer;
 
-    & .icon-cross {
+    & .icon__cross {
     display: none;
     }
 
-    &.is-open .icon-cross{
+    &.is-open .icon__cross{
       display: block;
       fill:  currentColor;
     }
 
-    &.is-open .icon-menu {
+    &.is-open .icon__menu {
     display: none;
     }
 }
@@ -76,27 +76,14 @@
   }
 }
 
-.icon-menu {
-  @include beforeBreak (tab) {
-  fill: currentColor;
-  transition: fill 250ms $bezier-timing;
-
-  .nav__btn:hover &,
-  .nav__btn:focus & {
-    fill: getColor ('accent-color');
-  }
-  }
-}
-
-.icon-cross {
+.icon {
   @include beforeBreak (tab) {
     fill: currentColor;
     transition: fill 250ms $bezier-timing;
-
-    .nav__btn.is-open:hover &,
-    .nav__btn.is-open:focus & {
-      fill: getColor ('accent-color');
+  
+    .nav__btn:hover &, .nav__btn.is-open:hover &,
+    .nav__btn:focus &, .nav__btn.is-open:focus & {
+      fill: getColor('accent-color');
     }
   }
-  
 }
