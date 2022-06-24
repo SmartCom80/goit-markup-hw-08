@@ -449,6 +449,7 @@ body {
 
 @media screen and (max-width: 767px) {
   .contact__link--mail {
+    padding: 0;
     font-weight: 500;
     font-size: 24px;
     line-height: 1.17;
@@ -582,6 +583,7 @@ body {
     position: absolute;
     top: 10px;
     right: 15px;
+    padding: 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -591,7 +593,6 @@ body {
   }
   .nav__btn.is-open .icon__cross {
     display: block;
-    fill: currentColor;
   }
   .nav__btn.is-open .icon__menu {
     display: none;

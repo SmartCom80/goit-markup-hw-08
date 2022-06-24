@@ -51,6 +51,7 @@
     position: absolute;
     top: 10px;
     right: 15px;
+    padding: 0;
 
     background-color: transparent;
     border: none;
@@ -63,7 +64,6 @@
 
     &.is-open .icon__cross{
       display: block;
-      fill:  currentColor;
     }
 
     &.is-open .icon__menu {

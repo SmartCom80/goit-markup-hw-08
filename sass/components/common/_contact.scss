@@ -81,6 +81,7 @@
 
     &--mail {
       @include beforeBreak (tab) {
+        padding: 0;
         @include font(500, 24px, 1.17, 0.02em);
         
         color: getColor('sec-color');
