@@ -1012,11 +1012,8 @@ body.no-scroll {
   color: #2196f3;
 }
 
-.form__container {
-  position: relative;
-}
-
 .form__input {
+  position: relative;
   margin-top: 4px;
   padding: 13px 42px;
   width: 100%;
@@ -1037,8 +1034,6 @@ body.no-scroll {
   display: inline-block;
   top: 50%;
   left: 12px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
   fill: #212121;
   -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);

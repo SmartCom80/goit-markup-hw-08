@@ -135,11 +135,11 @@
   }
 }
 
-.form__container {
-  position: relative;
-}
+
 
 .form__input {
+  position: relative;
+
   margin-top: 4px;
   padding: 13px 42px;
   width: 100%;
@@ -163,7 +163,7 @@
   display: inline-block;
   top: 50%;
   left: 12px;
-  transform: translateY(-50%);
+  
   fill: getColor('pr-color');
 
   transition: fill 250ms $bezier-timing;
