@@ -29,7 +29,12 @@
   position: absolute;
   z-index: 1000;
 
-  @include beforeBreak (desk) {
+  @include beforeBreak (mob) {
+    width: 100vw;
+    height: auto;
+  }
+
+  @include betweenBreak (mob, desk) {
     width: 450px;
     height: auto;
   }
