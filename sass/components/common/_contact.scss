@@ -108,8 +108,12 @@
 }
 
 .contact__socialList {
+  @include beforeBreak (mob) {
+    flex-wrap: wrap;
+ }
+
   @include beforeBreak (tab) {
-    display: flex;
+    display: flex;  
   }
 
   @include afterBreak (tab) {

@@ -98,7 +98,7 @@
 }
 
 .hero__title {
-  @include beforeBreak (tab) {
+  @include beforeBreak (desk) {
     max-width: 360px;
     @include font(900, 26px, 1.62, 0.06em, uppercase);
   }

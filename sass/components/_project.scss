@@ -6,10 +6,10 @@
 .filter__list {
   display: flex;
   flex-wrap: wrap;
-  
-  // /* display: flex; */
-  // justify-content: center;
-  // align-items: flex-start;
+
+  @include beforeBreak (mob) {
+    margin-top: -15px;
+  }
 
   @include afterBreak (tab) {
     @include centering_content();
@@ -21,7 +21,15 @@
 
 .filter__item {
 
-   @include beforeBreak (tab) {
+    @include beforeBreak(mob) {
+      margin-top: 15px;
+      
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+
+   @include betweenBreak (mob, tab) {
     &:nth-child(2) {
       margin-left: 8px;
       margin-right: 8px;
@@ -33,7 +41,7 @@
     }
   }
 
-   @include afterBreak (desk) {
+   @include afterBreak (tab) {
      &:not(:first-child) {
       margin-left: 8px;
      }
@@ -79,6 +87,7 @@
   }
 }
 
+
 /* Section Projects */
 
 .project__list {
@@ -119,6 +128,7 @@
   @include betweenBreak (tab, desk) {
 
     @include flexBasis (2);
+    
     // flex-basis: calc(1px *(100% / 2) - #{$gap-cardSet});
     // margin-left: $gap-cardSet;
     // margin-top: $gap-cardSet; 
@@ -130,12 +140,15 @@
     // flex-basis: calc(1px *(100% / 3) - #{$gap-cardSet});
     // margin-left: $gap-cardSet;
     // margin-top: $gap-cardSet; 
+
+    
   }
 }
 
 .project__link {
   display: block;
 
+  height: auto;
   transition: box-shadow 250ms $bezier-timing;
   
   &:hover,
@@ -151,6 +164,8 @@
 .cardThumb {
   position: relative;
   overflow: hidden;
+
+  justify-content: center;
 }
 
 .cardThumb__overlay {
@@ -181,11 +196,7 @@
 }
 
 .cardThumb__description {
-  
   @include font(400, 18px, 1.56, 0.03em);
-  // font-size: 18px;
-  // line-height: 1.56;
-  // letter-spacing: 0.03em;
 
   color: getColor("inv-color");
 }
@@ -194,16 +205,12 @@
   border: 1px solid #eeeeee;
   border-top: none;
   padding: 20px 24px;
+  flex-grow: 1;
 }
 
 .project__subtitle {
   margin-bottom: 4px;
   @include font(700, 18px, 2, 0.06em);
-
-  // font-weight: 700;
-  // font-size: 18px;
-  // line-height: 2;
-  // letter-spacing: 0.06em;
 }
 
 .project__filter {
