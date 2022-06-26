@@ -9,10 +9,10 @@
 
   opacity: 1;
   visibility: visible;
-  overflow-y: scroll;
+  overflow-y: hidden;
 
-  transition: (opacity 250ms $bezier-timing),
-   (visibility 250ms $bezier-timing);
+  transition: opacity 250ms $bezier-timing,
+   visibility 250ms $bezier-timing;
   
   &.is-hidden {
     @extend %hidden;
@@ -20,9 +20,8 @@
     visibility: hidden;
     pointer-events: none;
 
-  transition: (opacity 250ms $bezier-timing),
-   (visibility 250ms $bezier-timing), 
-   (overflow 250ms $bezier-timing);
+    transition: opacity 250ms $bezier-timing,
+                visibility 250ms $bezier-timing;
   }
 }
 
@@ -30,14 +29,9 @@
   position: absolute;
   z-index: 1000;
 
-  @include beforeBreak (mob) {
-    max-width: 450px;
-    max-height: 609px;
-  }
-
-  @include betweenBreak (mob, desk) {
+  @include beforeBreak (desk) {
     width: 450px;
-    height: 609px;
+    height: auto;
   }
 
   @include afterBreak (desk) {
@@ -54,9 +48,10 @@
   box-shadow: $cardSet-shadow;
   background-color: getColor("pr-bg-color");
 
-  transition: (opacity 250ms $bezier-timing),
-   (visibility 250ms $bezier-timing),
-   (box-shadow 250ms $bezier-timing);
+  transition: opacity 250ms $bezier-timing,
+              visibility 250ms $bezier-timing,
+              transform 250ms $bezier-timing,
+              box-shadow 250ms $bezier-timing;
   
   border-radius: 4px;
 
@@ -140,6 +135,7 @@
 }
 
 .form__input {
+  margin-top: 4px;
   padding: 13px 42px;
   width: 100%;
 
@@ -148,7 +144,8 @@
   border-radius: 4px;
   cursor: pointer;
 
-  transition: (color 250ms $bezier-timing), (border 250ms $bezier-timing);
+  transition: color 250ms $bezier-timing,
+              border 250ms $bezier-timing;
  
   &:hover,  
   &:focus {
@@ -173,6 +170,7 @@
 
 .comment__input {
   width: 100%;
+  margin-top: 4px;
   height: 120px;
   padding: 12px 16px;
   resize: none;
@@ -247,7 +245,7 @@
   transform: translateY(-50%);
   opacity: 1;
 
-  transition: (opacity 250ms $bezier-timing), (fill 250ms $bezier-timing);
+  transition: opacity 250ms $bezier-timing, fill 250ms $bezier-timing;
 
   .checkbox:checked ~ & {
     opacity: 0;
@@ -273,7 +271,8 @@
   transform: translateY(-50%);
   opacity: 0;
 
-  transition: opacity 250ms $bezier-timing;
+  transition: opacity 250ms $bezier-timing,
+              transform 250ms $bezier-timing;
   
   .checkbox:checked ~ & {
     opacity: 1;

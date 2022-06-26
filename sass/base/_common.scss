@@ -1,6 +1,10 @@
 body {
   font-family: $pr-font;
   color: getColor('pr-color');
+  
+  &.no-scroll {
+    overflow-y: hidden;
+  }
 }
 
 .section {

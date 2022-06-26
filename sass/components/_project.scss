@@ -1,4 +1,5 @@
 /* Section Filters */
+
 .portfolio__title {
   @extend %hidden;
 }
@@ -148,7 +149,7 @@
 .project__link {
   display: block;
 
-  height: auto;
+  height: 100%;
   transition: box-shadow 250ms $bezier-timing;
   
   &:hover,
@@ -202,10 +203,13 @@
 }
 
 .project__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+
   border: 1px solid #eeeeee;
   border-top: none;
   padding: 20px 24px;
-  flex-grow: 1;
 }
 
 .project__subtitle {

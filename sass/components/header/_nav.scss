@@ -69,8 +69,8 @@
       border: 2px solid getColor('accent-color');
       border-radius: 2px;
   
-      transition: (background-color 250ms $bezier-timing), 
-        (border 250ms $bezier-timing);
+      transition: background-color 250ms $bezier-timing, 
+        border 250ms $bezier-timing;
       }
     }
   }
