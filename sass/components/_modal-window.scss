@@ -1,5 +1,6 @@
 /* Modal window */
 .backdrop {
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,8 +10,7 @@
 
   opacity: 1;
   visibility: visible;
-  overflow-y: hidden;
-
+  
   transition: opacity 250ms $bezier-timing,
    visibility 250ms $bezier-timing;
   
@@ -27,16 +27,16 @@
 
 .modal {
   position: absolute;
-  z-index: 1000;
 
   @include beforeBreak (mob) {
+    z-index: 10;
     width: 100vw;
-    height: auto;
+    overflow-y: auto;
   }
 
   @include betweenBreak (mob, desk) {
     width: 450px;
-    height: auto;
+    overflow-y: auto;
   }
 
   @include afterBreak (desk) {
@@ -176,7 +176,7 @@
 .comment__input {
   width: 100%;
   margin-top: 4px;
-  height: 120px;
+  max-height: 120px;
   padding: 12px 16px;
   resize: none;
 
@@ -197,6 +197,10 @@
       
     color: rgba(117, 117, 117, 0.5);
   }
+
+//   @include beforeBreak (desk) {
+// max-height: 50px;
+//   }
 }
 
 .checkbox__field {

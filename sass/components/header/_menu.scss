@@ -1,5 +1,6 @@
         
 .menu {
+    z-index: 1;
     @include beforeBreak (tab) {
         display: none;
         position: absolute;
