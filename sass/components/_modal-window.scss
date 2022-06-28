@@ -1,13 +1,20 @@
 /* Modal window */
 .backdrop {
   z-index: 5;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 15px;
   background-color: rgba(0, 0, 0, 0.2);
+  justify-content: center;
 
+  @include beforeBreak (desk) {
+    justify-content: flex-start;
+  }
+  
   opacity: 1;
   visibility: visible;
   
@@ -28,20 +35,21 @@
 .modal {
   position: absolute;
 
-  @include beforeBreak (mob) {
+  @include beforeBreak (desk) {
     z-index: 10;
     width: 100vw;
-    overflow-y: auto;
-  }
+    max-width: 450px;
+    
+    height: 100%;
+    max-height: 609px;
 
-  @include betweenBreak (mob, desk) {
-    width: 450px;
-    overflow-y: auto;
+    margin: auto;
+    overflow-y: scroll;
   }
 
   @include afterBreak (desk) {
-  width: 528px;
-  height: 581px;
+    width: 528px;
+    height: 581px;
   }
 
   top: 50%;

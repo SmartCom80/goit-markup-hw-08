@@ -98,8 +98,8 @@
   }
 
   @include betweenBreak (tab, desk) {
-    display: flex;
-    align-items: center;
+    @include centering_content ();
+    
     flex-wrap: wrap;
 
     @include thumb_flexBasis;
@@ -205,7 +205,11 @@
 .project__content {
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+
+  @include betweenBreak (tab, desk) {
+    flex-grow: 1;
+  }
+  
 
   border: 1px solid #eeeeee;
   border-top: none;
