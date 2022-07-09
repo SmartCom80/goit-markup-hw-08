@@ -1,10 +1,17 @@
- //Function Transition
+//Function Transition
 //  @mixin transitionable($property...) {
 //   @for  $i from 0 to length($property) {
 //       transition: nth(($property 250ms $bezier-timing,), $i + 1);
 //   }
 // }
 
+@mixin retina {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    @content;
+  }
+}
 
 // Mixin FontValue
 @mixin font($fw, $fs, $lh, $ls, $tt: false) {
@@ -22,19 +29,19 @@
   justify-content: center;
 }
 
-// Mixin Сalculating container width for flex item 
+// Mixin Сalculating container width for flex item
 // $gap-cardSet - standard clearance between template elements
-
 
 @mixin thumb_flexBasis {
   margin-left: calc(#{$gap-cardSet} * (-1));
   margin-top: calc(#{$gap-cardSet} * (-1));
-  align-items:stretch;
+  align-items: stretch;
 }
 
-@mixin flexBasis ($amount_flexs) {
-  flex-basis: calc((100% - (#{$gap-cardSet} * #{$amount_flexs})) / #{$amount_flexs});
+@mixin flexBasis($amount_flexs) {
+  flex-basis: calc(
+    (100% - (#{$gap-cardSet} * #{$amount_flexs})) / #{$amount_flexs}
+  );
   margin-left: $gap-cardSet;
   margin-top: $gap-cardSet;
 }
-

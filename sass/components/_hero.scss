@@ -1,94 +1,84 @@
 /* Hero */
 
 .hero {
-  @include beforeBreak (tab) {
+  @include beforeBreak(tab) {
     padding-top: 118px;
     padding-bottom: 118px;
 
     background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/hero/bg-mob.jpg);
+        to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)
+      ),
+      url(../images/hero/bg-mob.jpg);
     background-size: cover;
 
-  @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  
-    background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/hero/bg-mob@2x.jpg);
-    background-size: cover;
-  }
+    @include retina {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4)
+        ),
+        url(../images/hero/bg-mob@2x.jpg);
+      background-size: cover;
+    }
   }
 
-  @include betweenBreak (tab, desk) {
+  @include betweenBreak(tab, desk) {
     width: 768px;
     height: 400px;
     padding-top: 118px;
     padding-bottom: 118px;
 
     background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/hero/bg-tab.jpg);
+        to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)
+      ),
+      url(../images/hero/bg-tab.jpg);
     background-size: 768px 400px;
 
-  @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  
-    background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/hero/bg-tab@2x.jpg);
-    background-size: cover;
-  }
+    @include retina {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4)
+        ),
+        url(../images/hero/bg-tab@2x.jpg);
+      background-size: cover;
+    }
   }
 
-  @include afterBreak (desk) {
+  @include afterBreak(desk) {
     max-width: 1600px;
     height: 600px;
     padding-top: 200px;
     padding-bottom: 200px;
     background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/hero/bg-desk.jpg);
+        to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)
+      ),
+      url(../images/hero/bg-desk.jpg);
     background-size: 1600px 600px;
 
-
-    @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  
-    background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/hero/bg-desk@2x.jpg);
-    background-size: cover;
+    @include retina {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4)
+        ),
+        url(../images/hero/bg-desk@2x.jpg);
+      background-size: cover;
     }
   }
-  
+
   margin-left: auto;
   margin-right: auto;
 
@@ -98,23 +88,23 @@
 }
 
 .hero__title {
-  @include beforeBreak (desk) {
+  @include beforeBreak(desk) {
     max-width: 360px;
     @include font(900, 26px, 1.62, 0.06em, uppercase);
   }
 
-  @include afterBreak (desk) {
+  @include afterBreak(desk) {
     max-width: 696px;
     @include font(900, 44px, 1.36, 0.06em, uppercase);
   }
-  
+
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 30px;
 
   text-align: center;
 
-  color: getColor('inv-color');
+  color: getColor("inv-color");
 }
 
 .hero__btn {
@@ -124,10 +114,9 @@
   margin-right: auto;
 
   transition: background-color 250ms $bezier-timing;
-  
+
   &:hover,
   &:focus {
-    background-color: #188CE8;
+    background-color: #188ce8;
   }
 }
-
