@@ -24,15 +24,15 @@ body {
   margin: 0 auto;
 
   @include afterBreak (mob) {
-    width: 480px;    
+    max-width: 480px;    
   }
 
   @include afterBreak (tab) {
-    width: 768px;    
+    max-width: 768px;    
   }
 
   @include afterBreak (desk) {
-    width: 1200px;    
+    max-width: 1200px;    
   }
 }
 
