@@ -1,7 +1,17 @@
-//Function Transition
-//  @mixin transitionable($property...) {
-//   @for  $i from 0 to length($property) {
-//       transition: nth(($property 250ms $bezier-timing,), $i + 1);
+// Function Transition
+//   @mixin transitionable($property...) {
+//       transition:
+//       for i = 0 from $property {
+//         (#{$property} 250ms $bezier-timing),};
+//  }
+
+// $sizes: 40px, 50px, 80px;
+
+// @each $size in $sizes {
+//   .icon-#{$size} {
+//     font-size: $size;
+//     height: $size;
+//     width: $size;
 //   }
 // }
 

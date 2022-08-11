@@ -1,70 +1,52 @@
 $breakpoints: (
-  'mob': 480px,
-  'tab': 768px,
- 'desk': 1200px
+  "mob": 480px,
+  "tab": 768px,
+  "desk": 1200px,
 ) !default;
 
 // Mixin Setting breakpoints in media queries
-@mixin beforeBreak ($breakpoint) {
-   @if map-has-key($breakpoints, $breakpoint) {
-      // Prints a media query based on the value
-       @media screen and (max-width: (map-get($breakpoints, $breakpoint) - 1px))
-           {@content;}
-     }
-   
-     // If the key doesn't exist in the map
-     @else 
-     {
-       @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+@mixin beforeBreak($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media screen and (max-width: (map-get($breakpoints, $breakpoint) - 1px)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
            + "Available breakpoints are: #{map-keys($breakpoints)}.";
-     }
-   }  
+  }
+}
 
-@mixin betweenBreak ($breakpoint, $lim) {
- 
-       // If the key exists in the map
-      @if map-has-key ($breakpoints, $lim) and map-has-key($breakpoints, $breakpoint) {
-  
-      //  Prints a media query based on the value
-         @media screen and (min-width: (map-get($breakpoints, $breakpoint))) and (max-width: (map-get($breakpoints, $lim) - 1px))
-          {@content;}
-       }
-         // If the key doesn't exist in the map
-       @else {
-        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+@mixin betweenBreak($breakpoint, $lim) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $lim) and map-has-key($breakpoints, $breakpoint)
+  {
+    //  Prints a media query based on the value
+    @media screen and (min-width: (map-get($breakpoints, $breakpoint))) and (max-width: (map-get($breakpoints, $lim) - 1px)) {
+      @content;
+    }
+  }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
              + "Available breakpoints are: #{map-keys($breakpoints)}.";
-      }
-   } 
+  }
+}
 
-@mixin afterBreak ($breakpoint) {
-       @if map-has-key($breakpoints, $breakpoint) {
-          // Prints a media query based on the value
-           @media screen and (min-width: map-get($breakpoints, $breakpoint))
-               {@content;}
-         }
-       
-         // If the key doesn't exist in the map
-         @else 
-         {
-           @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+@mixin afterBreak($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
                + "Available breakpoints are: #{map-keys($breakpoints)}.";
-         }
-   }   
-
-// @mixin mediaInterval ($interval, $breakpoint, $lim:false) {
-
-//   @content;
-   
-//   @if $interval == before {
-//    @include beforeBreak($breakpoint)
-//   }
-
-//   @else if $interval == between {
-//    @include betweenBreak($breakpoint, $lim)
-//   }     
-
-//   @else if $interval == after {
-//    @include afterBreak ($breakpoint)
-//   }
-//    }   
-  
+  }
+}
